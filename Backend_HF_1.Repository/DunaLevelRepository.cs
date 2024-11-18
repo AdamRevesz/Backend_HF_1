@@ -21,7 +21,8 @@ namespace Backend_HF_1.Repository
 
         public IQueryable<DunaLevel> GetAll()
         {
-            return _context.Set<DunaLevel>();
+            //return _context.Set<DunaLevel>();
+            return _context.WaterLevels.AsQueryable();
         }
 
 

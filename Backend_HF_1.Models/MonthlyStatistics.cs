@@ -5,8 +5,6 @@ namespace Backend_HF_1.Models
 {
     public class MonthlyStatistics
     {
-        [Key]
-        public int Id { get; set; }
         public string Month { get; set; } = "";
 
         [JsonPropertyName("average_value")]

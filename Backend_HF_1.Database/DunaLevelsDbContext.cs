@@ -12,7 +12,6 @@ namespace Backend_HF_1.Database
     public class DunaLevelDbContext : DbContext
     {
         public DbSet<DunaLevel> WaterLevels { get; set; }
-        public DbSet<MonthlyStatistics> MonthlyStatistics { get; set; }
 
         public DunaLevelDbContext(DbContextOptions options) : base(options)
         {

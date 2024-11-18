@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "Backend_HF_1.Client": {
+      "commandName": "Project"
+    },
+    "WSL": {
+      "commandName": "WSL2",
+      "distributionName": ""
+    }
+  }
+}

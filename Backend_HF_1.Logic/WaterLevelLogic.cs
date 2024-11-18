@@ -21,7 +21,7 @@ namespace Backend_HF_1.Logic
 
         public List<MonthlyStatistics> GetMonthlyStatistics()
         {
-            var data = _repository.GetAll();
+            var data = _repository.GetAll().ToList();
 
             return data
                 .GroupBy(w => new { w.Date.Year, w.Date.Month })

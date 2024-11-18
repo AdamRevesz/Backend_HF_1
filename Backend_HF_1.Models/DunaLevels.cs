@@ -12,6 +12,7 @@ namespace Backend_HF_1.Models
     public class DunaLevel
     {
         [Key]
+        [JsonIgnore]
         public int Id { get; set; }
         [JsonPropertyName("date")]
         public DateTime Date { get; set; }

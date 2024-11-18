@@ -10,6 +10,17 @@
   <ItemGroup>
     <PackageReference Include="Extensions.Hosting" Version="2.3.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.8" />
+    <PackageReference Include="Refit" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Backend_HF_1.Models\Backend_HF_1.Models.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="InputData\InputData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
