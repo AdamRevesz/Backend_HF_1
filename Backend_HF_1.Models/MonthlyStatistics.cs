@@ -15,5 +15,14 @@ namespace Backend_HF_1.Models
 
         [JsonPropertyName("maximal_value")]
         public int MaximalValue { get; set; }
+
+
+        public override string ToString()
+        {
+            return $"month: {Month}" +
+                $"\nAverage value: {AverageValue}" +
+                $"\nMinimal value: {MinimalValue}" +
+                $"\nMaximal value: {MaximalValue}";
+        }
     }
 }

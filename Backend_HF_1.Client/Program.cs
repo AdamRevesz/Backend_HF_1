@@ -1,7 +1,9 @@
 ﻿
+using Backend_HF_1.Models;
 using Microsoft.EntityFrameworkCore.Migrations.Operations;
 using System.IO;
 using System.Text;
+using System.Text.Json;
 
 namespace Backend_HF_1.Client
 {
@@ -18,8 +20,7 @@ namespace Backend_HF_1.Client
             while (isRunning)
             {
                 Console.WriteLine("Read in a file: press 1" +
-                    "\nAdd singular Data: 2" +
-                    "\nGet Monthly statistics: 3");
+                    "\nGet Monthly statistics: 2");
                 var input = Console.ReadKey().Key;
 
                 switch (input)
@@ -30,8 +31,8 @@ namespace Backend_HF_1.Client
 
                         break;
                     case ConsoleKey.D2:
-                        break;
-                    case ConsoleKey.D3:
+                        Console.Clear();
+                        await GetMonthlyStatistics();
                         break;
                     default:
                         break;
@@ -53,6 +54,34 @@ namespace Backend_HF_1.Client
 
                 var response = await client.PostAsync(url, content); //Post async helyett client.GetAsync van csak az URl van parameternek
                 response.EnsureSuccessStatusCode();
+            }
+            catch (HttpRequestException ex)
+            {
+                Console.WriteLine($"There was an error {ex.Message}");
+                return false;
+            }
+            return true;
+
+
+        }
+
+        public static async Task<bool> GetMonthlyStatistics()
+        {
+            Console.WriteLine("Gathering records.....");
+
+            var url = baseUrl + "/api/WaterLevel";
+
+            using var client = new HttpClient();
+            try
+            {
+                var response = await client.GetAsync(url); //Post async helyett client.GetAsync van csak az URl van parameternek
+                response.EnsureSuccessStatusCode();
+                var responseBody = await response.Content.ReadAsStringAsync();
+                var output = JsonSerializer.Deserialize<List<MonthlyStatistics>>(responseBody);
+                foreach (var item in output)
+                {
+                    Console.WriteLine(item);
+                }
             }
             catch (HttpRequestException ex)
             {

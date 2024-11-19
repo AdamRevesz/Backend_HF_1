@@ -4,6 +4,7 @@ using Backend_HF_1.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Backend_HF_1.Database.Migrations
 {
     [DbContext(typeof(DunaLevelDbContext))]
-    partial class DunaLevelDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241118184139_Fasz123")]
+    partial class Fasz123
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
