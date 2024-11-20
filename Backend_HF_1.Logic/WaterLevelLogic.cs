@@ -27,13 +27,15 @@ namespace Backend_HF_1.Logic
                 .GroupBy(w => new { w.Date.Year, w.Date.Month })
                 .Select(g => new MonthlyStatistics
                 {
-                    Month = $"{g.Key.Year}.{g.Key.Month:D2}",
-                    AverageValue = g.Average(w => w.WaterLevel),
+                    Month = $"{g.Key.Year:D4}-{g.Key.Month:D2}",
+                    AverageValue = Math.Round(g.Average(w => w.WaterLevel)),
                     MinimalValue = g.Min(w => w.WaterLevel),
                     MaximalValue = g.Max(w => w.WaterLevel)
                 })
                 .OrderBy(m => m.Month)
                 .ToList();
+
+
         }
 
         public List<DunaLevel> GetDunaLevelsFromPath(string path)

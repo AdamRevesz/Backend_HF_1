@@ -5,7 +5,8 @@ namespace Backend_HF_1.Models
 {
     public class MonthlyStatistics
     {
-        public string Month { get; set; } = "";
+        [JsonPropertyName("month")]
+        public string Month { get; set; }
 
         [JsonPropertyName("average_value")]
         public double AverageValue { get; set; }
@@ -19,10 +20,11 @@ namespace Backend_HF_1.Models
 
         public override string ToString()
         {
-            return $"month: {Month}" +
+            return $"Month: {Month}" +
                 $"\nAverage value: {AverageValue}" +
                 $"\nMinimal value: {MinimalValue}" +
                 $"\nMaximal value: {MaximalValue}";
+            ;
         }
     }
 }
